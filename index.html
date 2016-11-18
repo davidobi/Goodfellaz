@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="js/devless.js"></script>
+
+</head>
+
+<body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<center><div class="container-max">
+
+      <div class="row">
+
+        <div class="col-lg-12 text-center v-center">
+          <div class="col-md-3">
+
+          </div>
+          <div class="col-md-6">
+             <input style="color:black;" type="email" name="email" id="email" placeholder="Enter email">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input style="color:black;" type="text" name="Full Name" id="ful_name" placeholder="Enter fullname">
+          <br><br>
+
+          <center><b><input style="color:black;" type="submit" value="Sign Up" onclick="submit()" name="submit"></b></center>
+
+</div>
+
+
+        <div class="col-md-3">
+
+  </div></center>
+<!-- End Landing Page -->
+<script type="text/javascript">
+
+
+    function submit(){
+
+      var email = $("#email").val();
+
+      var fullname =$("#ful_name").val();
+
+      data = {"email":email, "fullname":fullname};
+
+      Devless.addData("LandingPage","subscribers", data, function(response){
+        console.log(response)
+        if(response.status_code == 609){
+          alert("Your sign up was successful");
+        }else if(response.status_code == 700){
+          alert("Sorry, your sign up failed");
+        }
+        else{
+
+            alert("Something went wrong. Please try again someother time");
+          }
+      })
+
+    }
+    </script>
+
+
+  <script type="text/javascript">
+  var constants = { "token":"d0d02e188a531c871e369cc93862bf32", "domain":"http://tonyomarfo.herokuapp.com" }; Devless = new Devless(constants);
+</script>
+
+        </div>
+
+      </div>
+</div>
+</div>
+</body>
+</html>
